@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midterm Lab Task 3-1</title>
+    <style>
+        /* Loading Animation */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #ff69b4;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        .skull-icon {
+            position: absolute;
+            font-size: 40px;
+            color: #ff69b4;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        /* Bat burst animation */
+        .bat-burst {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            background-image: url('https://media.tenor.com/Npixqj3Ek1IAAAAi/sappy-seals.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            animation: burst 1.5s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeOut {
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes burst {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes backgroundScroll {
+            from { background-position: 0 0; }
+            to { background-position: -100% 0; }
+        }
+
+        body {
+            cursor: url('https://www.cursor.cc/cursor3d/66307.png') 25 25, auto;
+            background-color: #1a1a1a;
+            color: #ff69b4;
+            font-family: 'Gothic', cursive;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://i.pinimg.com/736x/6e/23/ed/6e23edac1daba77b52caafff61a4c369.jpg');
+            background-repeat: repeat-x;
+            animation: backgroundScroll 20s linear infinite;
+            background-size: contain;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #ff1493;
+            text-shadow: 2px 2px 4px #000;
+            font-family: 'Monster High', fantasy;
+        }
+
+        .content-section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: rgba(26, 26, 26, 0.8);
+            border-radius: 10px;
+            border: 2px solid #ff69b4;
+            transition: transform 0.3s;
+        }
+
+        .content-section:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 25px rgba(255, 105, 180, 0.3);
+        }
+
+        .step-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .step-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: rgba(255, 105, 180, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #ff1493;
+            transition: transform 0.3s;
+        }
+
+        .step-list li:hover {
+            transform: translateX(10px);
+            background-color: rgba(255, 105, 180, 0.2);
+        }
+
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            border: 3px solid #ff69b4;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff1493;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 20px auto;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+
+        .download-btn:hover {
+            background-color: #ff69b4;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+        }
+
+        .download-section {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+        <div class="skull-icon">💀</div>
+    </div>
+
+    <div class="container">
+        <h1>Midterm Lab Task 3-1 - Using MYSQL Clause</h1>
+
+        <div class="download-section">
+            <a href="https://github.com/user-attachments/files/19895253/Finals.Lab.Task.3-1.-.Manarang.docx" class="download-btn">
+                Download Word File
+            </a>
+        </div>
+
+        <div class="content-section">
+            <h2>Step By Step Process</h2>
+            <ul class="step-list">
+                <li><strong>Step 1: Create the Database</strong>
+                    <ul>
+                        <li>Open MySQL environment</li>
+                        <li>Create database: <code>CREATE DATABASE online_courseDB;</code></li>
+                    </ul>
+                </li>
+                <li><strong>Step 2: Select the Database</strong>
+                    <ul>
+                        <li>Use command: <code>USE online_courseDB;</code></li>
+                    </ul>
+                </li>
+                <li><strong>Step 3: Load Initial Data</strong>
+                    <ul>
+                        <li>Import onlineCourse.l file</li>
+                        <li>Creates courses table with fields:
+                            <ul>
+                                <li>id (auto-increment primary key)</li>
+                                <li>course_name (VARCHAR, not null)</li>
+                                <li>category (VARCHAR, not null)</li>
+                                <li>enrollment_limit (INTEGER, not null)</li>
+                                <li>students_enrolled (INTEGER, not null)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>Step 4: Perform SQL Tasks</strong>
+                    <ul>
+                        <li>Task 1: List courses below capacity</li>
+                        <li>Task 2: Group by category</li>
+                        <li>Task 3: Show fully enrolled courses</li>
+                        <li>Task 4: Total students in all courses</li>
+                        <li>Task 5: Sort courses by enrollment</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Query Statements</h2>
+            
+            <h3>1. Task 1</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/692184a7-0b93-4f43-bbc5-a55b6864bb61" alt="Task 1">
+            </div>
+
+            <h3>2. Task 2</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/d9d3b6ed-2d92-4d3e-9ecf-dffe924905c0" alt="Task 2">
+            </div>
+
+            <h3>3. Task 3</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/fc137d62-b971-45e8-855e-ce731bd824eb" alt="Task 3">
+            </div>
+
+            <h3>4. Task 4</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/fc8e9309-32c2-46bd-a695-10e213696c43" alt="Task 4">
+            </div>
+
+            <h3>5. Task 5</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/925b7c20-6077-474a-8a09-7006b1fdb2a2" alt="Task 5">
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Table Structure</h2>
+            
+            <h3>1. Task 1</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/311f5c59-25a2-4a42-ac8c-cfb17d885643" alt="Table Structure 1">
+            </div>
+
+            <h3>2. Task 2</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/3423ef5d-1f25-4312-9f86-8ebfac82f667" alt="Table Structure 2">
+            </div>
+
+            <h3>3. Task 3</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/e175b54c-4402-4d68-a2f9-32856194e40c" alt="Table Structure 3">
+            </div>
+
+            <h3>4. Task 4</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/c23f0143-9075-45eb-8b23-2fd17b489233" alt="Table Structure 4">
+            </div>
+
+            <h3>5. Task 5</h3>
+            <div class="image-container">
+                <img src="https://github.com/user-attachments/assets/39a78a7e-74de-44e6-947c-f7583fc0d248" alt="Table Structure 5">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loader-wrapper').style.animation = 'fadeOut 1s ease-out forwards';
+            }, 2000);
+        });
+
+        document.addEventListener('click', (e) => {
+            const burst = document.createElement('div');
+            burst.className = 'bat-burst';
+            burst.style.left = `${e.clientX - 30}px`;
+            burst.style.top = `${e.clientY - 30}px`;
+            document.body.appendChild(burst);
+
+            setTimeout(() => {
+                burst.remove();
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
